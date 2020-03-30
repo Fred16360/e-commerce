@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<a href="{% url 'produit_list'%}">Affichage des produits</a><br>
+<a href="{% url 'produit_create'%}">Ajout d'un produit</a>
+<hr>
+{% endblock %}

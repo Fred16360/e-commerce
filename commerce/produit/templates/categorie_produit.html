@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Affichage des catégories</h2>
+<ul>
+{% for cat in categorie_list %}
+<li>
+  <a href="{{cat}}">  {{ cat }}</a>
+    </li>
+{% endfor %%}
+</ul>
+
+{% endblock %}

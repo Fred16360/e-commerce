@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Affichage des produits</h2>
+{{ produit_list }}
+<p>Nombre de produit dans la boutique : {{ produit_list.count }}</p>
+<table border="2" cellspacing="5">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <th>Référence</th>
+            <th>Catégorie</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Couleur</th>
+            <th>Taille</th>
+            <th>Public</th>
+            <th>Photo</th>
+            <th>Prix</th>
+            <th>Stock</th>
+            <th>Modification</th>
+            <th>Suppression</th>
+        </tr>
+
+        {% for prod in produit_list %}
+        <tr>
+            <td>{{ prod.id }}</td>
+            <td>{{ prod.reference }}</td>
+            <td>{{ prod.categorie }}</td>
+            <td>{{ prod.titre }}</td>
+            <td>{{ prod.description }}</td>
+            <td>{{ prod.couleur }}</td>
+            <td>{{ prod.taille }}</td>
+            <td>{{ prod.public }}</td>
+            <td>
+                <img src="{{ prod.photo.url }}" width="100px">
+            </td>
+            <td>{{ prod.prix }}</td>
+            <td>{{ prod.stock }}</td>
+            <td><a href="../update/{{prod.id}}"><img src="/media/coche-verte.png" width="40px"></a></td>
+               <td><a href="../delete/{{prod.id}}"><img src="/media/red.jpg" width="40px"></a></td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<p>Bonjour <strong>{{ user.first_name}} {{ user.last_name}}</strong></p>
+<h2>Voici vos informations</h2>
+<p>Votre pseudo : {{ user.username }}
+<p>Votre Email : {{ user.email }}</P>
+<p>Votre adresse : {{ user.adresse }}</p>
+<p>Votre code postal : {{ user.code_postal }}</p>
+<p>Votre ville : {{ user.ville}}</p>
+
+{% endblock %}

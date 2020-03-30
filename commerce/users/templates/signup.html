@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="inscription">
+<h2>Inscription</h2>
+<form method="post">
+  {% csrf_token %}
+
+  <label>Nom d'utilisateur (pseudo)</label>
+  {{ form.username }}
+  <label>Mot de passe</label>
+  {{ form.password1 }}
+  <label>Confirmation mot de passe</label>
+  {{ form.password2 }}
+  <label>Nom</label>
+  {{ form.last_name }}
+  <label>Prénom</label>
+  {{ form.first_name }}
+  <label>Email</label>
+  {{ form.email }}
+ <label>Civilité</label>
+  {{ form.civilite }}
+  <label>Ville</label>
+  {{ form.ville }}
+  <label>Code postal</label>
+  {{ form.code_postal }}
+  <label>Adresse</label>
+  {{ form.adresse }}
+
+  <button type="submit">S'inscrire</button>
+
+</form>
+{% endblock %}
+
+</div>

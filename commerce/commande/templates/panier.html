@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<table border="1" cellpadding="8">
+    <tbody>
+        <tr>
+            <td colspan="4" style="text-align:center">
+                <h4>Panier</h4>
+        </tr>
+        <tr>
+            <th>Titre</th>
+            <th>Produit</th>
+            <th>Quantité</th>
+            <th>Prix Unitaire</th>
+        </tr>
+        <tr>
+            {% for prod in panier %}
+            <td>{{ prod.produit }}</td>
+            <td>{{ prod.produit.reference }}</td>
+            <td align="right">{{ prod.quantite }}</td>
+            <td align="right">{{ prod.prix }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="3" align="right">Total :</td>
+            <td align="right">{{ total }}</td>
+        <tr>
+            <td colspan="4"><a class="btn btn-dark" href="{% url 'valider_commande' %}">Valider la commande et payer</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4"><a href="{% url 'vider_panier' %}">Vider mon panier</a></td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

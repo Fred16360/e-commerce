@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<form class="form-group inscription" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<label>Référence</label>
+{{ form.reference }}
+<label>Catégorie</label>
+{{ form.categorie }}
+<label>Titre</label>
+{{ form.titre }}
+<label>Description</label>
+{{ form.description }}
+<label>Couleur</label>
+{{ form.couleur }}
+<label>Taille</label>
+{{ form.taille }}
+<label>Public</label>
+{{ form.public }}
+<p class="photo-texte">Vous pouvez uploader une nouvelle photo si vous souhaitez la changer</p>
+<label>Photo</label>
+<img class="photo" src="/media/{{ form.photo.value }}" alt="" width="100px">
+{{ form.photo }}
+
+<label>Prix</label>
+{{ form.prix }}
+<label>Stock</label>
+{{ form.stock}}
+
+
+<input type="submit" class="btn btn-dark" value="Modifier">
+</form>
+
+{% endblock %}

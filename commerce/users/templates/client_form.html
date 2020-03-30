@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block form %}
+
+<form name="client" class="form-group col-4" enctype="multipart/form-data" name="client" action="" method="post">
+{% csrf_token %}
+
+
+<ul>
+  <li>Username: {{ user_form.email }}</li>
+
+</ul>
+
+
+ <!-- <label>Pseudo</label>
+    {{ client_form.pseudo }}
+    <label>Mot de passe</label>
+    {{ user_form.password }}-->  
+ <!-- <label>Nom</label>
+    {{ client_form.nom }}
+    <label>Prénom</label>
+    {{ client_form.prenom }}
+    <label>Email</label>
+    {{ user_form.username }}-->  
+ <!-- <label>Civilité</label>
+    {{ client_form.civilite }}
+    <label>Ville</label>
+    {{ client_form.ville}}
+    <label>Code Postal</label>
+    {{ client_form.code_postal }}
+    <label>Adresse</label>
+    {{ client_form.adresse }}-->  
+
+    <input name="client" type="submit" value="S'inscrire" class="btn btn-dark">
+</form>
+{% endblock %}

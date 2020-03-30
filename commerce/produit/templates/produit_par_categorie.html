@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<ul>
+{% for categorie in categorie_list %}
+<li>
+  <a href="{{ categorie }}">  {{ categorie }}</a>
+    </li>
+{% endfor %%}
+</ul>
+
+{% for produit in prod_par_cat %}
+
+<h3>{{ produit.titre }}</h3>
+    <img src="{{ produit.photo.url }}" width="100px"><br>
+{{ produit.prix }} €<br>
+<form>
+<button class="btn btn-dark" type="submit" formaction="../fiche/{{ produit.id }}">Voir fiche</button>
+</form>
+{% endfor %}
+
+{% endblock %}

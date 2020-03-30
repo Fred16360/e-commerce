@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h4>{{ produit.titre }}</h4>
+<hr>
+Catégorie : {{ produit.categorie }}<br>
+Couleur : {{ produit.couleur }}<br>
+Taille : {{ produit.taille }}<br>
+<img src="{{ produit.photo.url }}" alt="{{produit.titre}}" width="200px"><br>
+Description : {{ produit.description }}
+<p>Prix : {{ produit.prix }} €</p>
+<p>Nombre de produit disponible : {{ produit.stock }}</p>
+<p>
+
+<form method="post">
+{% csrf_token %}
+
+{{ panier.quantite }}<input type="submit" class="btn btn-dark" value="Ajouter Panier"><br>
+
+<button formaction="../categorie/{{ produit.categorie}}">Retour vers la catégorie {{ produit.categorie }}</button>
+
+</form>
+{% endblock %}

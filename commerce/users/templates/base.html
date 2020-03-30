@@ -1,0 +1,57 @@
+{% load static %}
+
+<!Doctype html>
+<html>
+
+<head>
+    <title>Mon Site</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <header>
+        <div class="conteneur">
+            <div>
+                <a href="{% url 'login'%}" title="Mon Site">MonSite.com</a>
+            </div>
+            <nav>
+                <a href="{% url 'signup'%}">Inscription</a>
+
+                <a href="{% url 'categorie_produit' %}">Accès à la boutique</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'gestion_boutique' %}">Gestion de la boutique</a>
+                <a href="{% url 'profil_user' %}">Voir mon profil</a>
+                {% endif %}
+                <a href="{% url 'panier' %}">Voir votre panier</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}">Deconnexion</a>
+                {% else %}
+                <a href="{% url 'login_user' %}">Connexion</a>
+
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="conteneur">
+            {% block title %}
+            {% endblock %}
+            {% block form %}
+            {% endblock %}
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+    </section>
+    <footer>
+        <div class="conteneur">
+            <?php echo date('Y'); ?> - Tous droits reservés - MonNom MonPrenom. ?>
+        </div>
+    </footer>
+</body>
+
+</html>
